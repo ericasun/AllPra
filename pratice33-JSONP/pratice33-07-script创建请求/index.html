@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!--用script创建请求-->
+</head>
+
+<body>
+    <h5>您的账户余额是<span id="amount">&&&amount&&&</span></h5>
+    <button id="button">打钱</button>
+</body>
+</html>
+
+<script>
+    button.addEventListener('click',(e)=>{
+        let script = document.createElement('script')
+        script.src = '/pay'
+        document.body.appendChild(script)
+        script.onload = function(){
+            alert('success')
+        }
+
+        script.onerror = function(){
+            alert('fail')
+        }
+    })
+</script>
+

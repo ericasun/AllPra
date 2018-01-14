@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!--页面会显示账户余额，并且每点击一次按钮，余额会减1-->
+</head>
+
+<body>
+    <h5>您的账户余额是<span id="amount">100</span></h5>
+    <button id="button">付款1块钱</button>
+</body>
+</html>
+
+<script>
+    button.addEventListener('click',(e) =>{
+        let n = amount.innerText
+        let number = parseInt(n,10)
+        let newNumber = number - 1
+        amount.innerText = newNumber
+    })
+</script>

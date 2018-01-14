@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <!--删除script,由于每次点击打钱，在开发者工具中就会出现一个script，-->
+</head>
+
+<body>
+    <h5>您的账户余额是<span id="amount">&&&amount&&&</span></h5>
+    <button id="button">打钱</button>
+</body>
+</html>
+
+<script>
+    button.addEventListener('click',(e)=>{
+        let script = document.createElement('script')
+        script.src = '/pay'
+        document.body.appendChild(script)
+        script.onload = function(e){
+            debugger
+            e.currentTarget.remove()
+        }
+        script.onerror = function(){
+            alert('fail')
+        }
+    })
+</script>
+
