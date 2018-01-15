@@ -19,7 +19,6 @@
     button.addEventListener('click',(e)=>{
         $.ajax({
             url:"http://localhost:8002/pay",
-            type: "get",
             datatype:"jsonp",
             success:function(response){
                 if(result === 'success'){

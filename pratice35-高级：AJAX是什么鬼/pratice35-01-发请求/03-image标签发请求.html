@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>03-image标签发get请求</title>
+</head>
+<body>
+    <script>
+        var image = document.createElement('img')
+        image.src='/xxx'
+        document.body.appendChild(image)
+        image.onload = function(){
+            console.log('s')
+        }
+        image.onerror = function({
+            console.log('f')
+        })
+    </script>
+</body>
+</html>
