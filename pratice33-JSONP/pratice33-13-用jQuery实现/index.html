@@ -13,12 +13,13 @@
 </html>
 
 <!--引入jQuery-->
-<script  src="http://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 <script>
     button.addEventListener('click',(e)=>{
         $.ajax({
             url:"http://localhost:8002/pay",
+            type: "get",
             datatype:"jsonp",
             success:function(response){
                 if(result === 'success'){

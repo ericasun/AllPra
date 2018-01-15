@@ -31,6 +31,7 @@ var server = http.createServer(function(request,response){
         response.end()
     }else if(path === '/main.js'){
         var string = fs.readFileSync('./main.js','utf8')
+        //response.setHeader("Access-Control-Allow-Origin", "http://localhost:8002/pay");
         response.setHeader('Content-Type','application/javascript')
         response.write(string)
         response.end()
