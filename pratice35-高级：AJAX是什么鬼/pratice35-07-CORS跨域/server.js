@@ -24,17 +24,18 @@ var server = http.createServer(function(request,response){
         response.setHeader('Content-Type','text/javascript;charset=utf-8')
         response.write(string)
         response.end()
-    }else if(path='xxx'){
+    }else if(path='/xxx'){
         response.statusCode = 200
         response.setHeader('Content-Type','text/xml')
+        response.setHeader('Access-Control-Allow-Origin','*')
+        //符合JSON语法的字符串
         response.write(`
-            //符合JSON语法的字符串
             {
                 "note":{
                     "to":"小谷",
                     "from":"方方",
                     "heading":"打招呼",
-                    "content":hi
+                    "content":"hi"
                 }
             }
         `)
