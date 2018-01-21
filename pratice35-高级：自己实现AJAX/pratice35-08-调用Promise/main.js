@@ -6,6 +6,7 @@ window.jQuery = function(nodeOrSelector){
     return nodes
 }
 
+//此时ajax返回的是一个promise对象
 window.jQuery.ajax = function({url,method,body,headers}){
     //方法1
     //let {url,method,body,successFn,failFn,headers} = options
