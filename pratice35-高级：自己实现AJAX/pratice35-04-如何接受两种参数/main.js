@@ -6,12 +6,31 @@ window.jQuery = function(nodeOrSelector){
     return nodes
 }
 
-//封闭
-window.jQuery.ajax = function(url,method,body,successFn,failFn){
-    console.log(url);
+window.jQuery.ajax = function(options){
+    //把url和options纠正一下，如何接受两种参数
+    let url = options.url
+
+    if(arguments.length === 1){
+        url = options.url
+    }else if(arguments.length === 2){
+        url =arguments[0]
+        options = arguments[1]
+    }
+
+    let method = options.method
+    let body = options.body
+    let successFn = options.successFn
+    let failFn = options.failFn
+    let headers = options.headers
+
     let request = new XMLHttpRequest()
     //请求第一部分
     request.open(method, url) //配置request
+
+    for(let key in headers){
+        let value = headers[key]
+        request.setRequestHeader(key,value)
+    }
 
     /*第36课添加代码结束*/
     request.onreadystatechange = ()=>{
@@ -34,14 +53,15 @@ window.$ = window.jQuery
 
 myButton.addEventListener('click',(e)=>{
     /*第36课添加的代码*/
-
-    //调用
-    window.jQuery.ajax(
-        '/xxx',
-        'get',
-        'a=1&b=2',
-        (responseText) =>{ console.log(1)},
-        (request)=>{ console.log(2)}
-    )
+    window.jQuery.ajax({
+        url:'/xxx',
+        method:'get',
+        headers:{
+            'content-type':'application/x-www-form-urlencoded',
+            'frank':'18'
+        },
+        successFn:()=>{},
+        failFn:()=>{}
+    })
 /*第36课添加代码结束*/
 })

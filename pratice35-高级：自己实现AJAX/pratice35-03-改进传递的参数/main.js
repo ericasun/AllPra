@@ -7,16 +7,7 @@ window.jQuery = function(nodeOrSelector){
 }
 
 window.jQuery.ajax = function(options){
-    //把url和options纠正一下，如何接受两种参数
     let url = options.url
-
-    if(argument.length === 1){
-        url = options.url
-    }else if(arguments.length === 2){
-        url =arguments[0]
-        options = arguments[1]
-    }
-
     let method = options.method
     let body = options.body
     let successFn = options.successFn
