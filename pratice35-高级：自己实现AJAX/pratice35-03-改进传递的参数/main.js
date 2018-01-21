@@ -6,6 +6,7 @@ window.jQuery = function(nodeOrSelector){
     return nodes
 }
 
+
 window.jQuery.ajax = function(options){
     let url = options.url
     let method = options.method

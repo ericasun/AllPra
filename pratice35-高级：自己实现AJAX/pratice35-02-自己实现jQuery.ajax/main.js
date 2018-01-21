@@ -6,7 +6,7 @@ window.jQuery = function(nodeOrSelector){
     return nodes
 }
 
-//封闭
+//封装   此时ajax返回值是underfined
 window.jQuery.ajax = function(url,method,body,successFn,failFn){
     console.log(url);
     let request = new XMLHttpRequest()
