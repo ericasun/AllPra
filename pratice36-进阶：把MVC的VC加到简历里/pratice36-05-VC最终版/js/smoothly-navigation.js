@@ -5,29 +5,21 @@
 !function(){
     var view = document.querySelector('nav.menu')
 
-    var controller = function(view) {
+    var controller = {
         view:null,
-            aTags
-        :
-        null,
-            init
-        :
-        function (view) {
+        aTags:null,
+        init:function (view) {
             this.view = view
             this.initAnimation()
             this.bindEvents()
-        }
-
-        ,
+        },
         initAnimation:function () {
             function animate(time) {
                 requestAnimationFrame(animate);
                 TWEEN.update(time);
             }
-
             requestAnimationFrame(animate);
-        }
-        ,
+        },
 
         scrollToElement:function (element) {
             let top = element.offsetTop
@@ -48,8 +40,7 @@
                     window.scrollTo(0, coords.y) // 如何更新界面
                 })
                 .start(); // 开始缓动
-        }
-        ,
+        },
         bindEvents:function () {
             let aTags = view.querySelectorAll('nav.menu > ul > li > a')
 
