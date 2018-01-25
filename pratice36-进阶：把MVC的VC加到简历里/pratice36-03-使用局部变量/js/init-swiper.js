@@ -21,6 +21,6 @@
         scrollbar: {
             el: '.swiper-scrollbar',
         },
-    })
+   })
 }.call()
 

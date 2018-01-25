@@ -146,6 +146,6 @@ section.portfolio .works{ position: relative; }
 section.portfolio .works > .big, section.portfolio .works > .small { position: absolute; }
 section.portfolio.swiper-container {  width: 888px; height: 666px;  }
 section.portfolio .swiper-slide{ background:white; }
-section.portfolio .swiper-button-prev, section.portfolio.swiper-button-next{
+section.portfolio .swiper-button-prev, section.portfolio .swiper-button-next{
   background-color:white; width:64px; height:64px; right:100%;  left:auto; border-radius:50%;}
 section.portfolio .swiper-button-next{ left:100%; right:auto; }
