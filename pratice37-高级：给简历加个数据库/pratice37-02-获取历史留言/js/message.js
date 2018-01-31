@@ -25,6 +25,19 @@ AV.init({
 //    alert('LeanCloud Rocks!');
 //})
 
+var query = new AV.Query('Message');
+query.find()
+    .then(
+        function (messages) {
+            let array = messages.map((item)=> item.attributes)
+            array.forEach((item)=>{
+                let li = document.createElement('li')
+                li.innerText = item.content
+                let messageList = document.querySelector('#messageList')
+                messageList.appendChild(li)
+             })
+        }
+    )
 
 
 let myForm = document.querySelector('#postMessage')
@@ -39,28 +52,10 @@ myForm.addEventListener('submit',function(e){
     message.save({
         'content':content
     }).then(function(object){
-        console.log(1)
+        window.location.reload()
     })
 })
 
-var query = new AV.Query('Message');
-query.find()
-    .then(
-        function (messages) {
-            let array = messages.map((item)=> item.attributes)
-            array.forEach((item)=>{
-                let li = document.createElement('li')
-                li.innerText = item.content
-                let messageList = document.querySelector('#messageList')
-                messageList.appendChild(li)
-            })
-        },
-        function(error){
-            //异常处理
-        })
-    .then(()=>{},(error)=> {
-        console.log(error)
-});
 
 
 
