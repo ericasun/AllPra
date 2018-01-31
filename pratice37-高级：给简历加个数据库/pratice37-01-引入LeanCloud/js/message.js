@@ -30,7 +30,7 @@ let myForm = document.querySelector('#postMessage')
 myForm.addEventListener('submit',function(e){
     e.preventDefault()
     let content = myForm.querySelector('input[name=content').value
-    var Message = AV.Object.extent('Message');
+    var Message = AV.Object.extend('Message');
 
     var message = new Message();
 
