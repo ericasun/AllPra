@@ -32,7 +32,7 @@ query.find()
             let array = messages.map((item)=> item.attributes)
             array.forEach((item)=>{
                 let li = document.createElement('li')
-                li.innerText = item.content
+                li.innerText = `${item.name}: ${item.content}`
                 let messageList = document.querySelector('#messageList')
                 messageList.appendChild(li)
              })
@@ -43,16 +43,25 @@ query.find()
 let myForm = document.querySelector('#postMessage')
 
 myForm.addEventListener('submit',function(e){
+    console.log(e)
     e.preventDefault()
-    let content = myForm.querySelector('input[name=content').value
+    let name = myForm.querySelector('input[name=name]').value
+    let content = myForm.querySelector('input[name=content]').value
+    
     var Message = AV.Object.extend('Message');
-
     var message = new Message();
 
     message.save({
+        'name': name,
         'content':content
     }).then(function(object){
-        window.location.reload()
+        alert(1)
+        let li = document.createElement('li')
+        li.innerText = `${object.attributes.name}: ${object.attributes.content}`
+        let messageList = document.querySelector('#messageList')
+        messageList.appendChild(li)
+        myForm.querySelector('input[name=content]').value = ''
+        console.log(object)
     })
 })
 
