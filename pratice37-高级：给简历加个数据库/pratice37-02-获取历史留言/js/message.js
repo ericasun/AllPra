@@ -25,7 +25,7 @@ AV.init({
 //    alert('LeanCloud Rocks!');
 //})
 
-var query = new AV.Query('Message');
+var query = new AV.Query('Message2');
 query.find()
     .then(
         function (messages) {
@@ -45,7 +45,7 @@ let myForm = document.querySelector('#postMessage')
 myForm.addEventListener('submit',function(e){
     e.preventDefault()
     let content = myForm.querySelector('input[name=content').value
-    var Message = AV.Object.extend('Message');
+    var Message = AV.Object.extend('Message2');
 
     var message = new Message();
 
