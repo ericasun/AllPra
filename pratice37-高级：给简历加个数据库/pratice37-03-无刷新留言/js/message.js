@@ -25,7 +25,7 @@ AV.init({
 //    alert('LeanCloud Rocks!');
 //})
 
-var query = new AV.Query('Message');
+var query = new AV.Query('Message3');
 query.find()
     .then(
         function (messages) {
@@ -48,14 +48,13 @@ myForm.addEventListener('submit',function(e){
     let name = myForm.querySelector('input[name=name]').value
     let content = myForm.querySelector('input[name=content]').value
     
-    var Message = AV.Object.extend('Message');
+    var Message = AV.Object.extend('Message3');
     var message = new Message();
 
     message.save({
         'name': name,
         'content':content
     }).then(function(object){
-        alert(1)
         let li = document.createElement('li')
         li.innerText = `${object.attributes.name}: ${object.attributes.content}`
         let messageList = document.querySelector('#messageList')
