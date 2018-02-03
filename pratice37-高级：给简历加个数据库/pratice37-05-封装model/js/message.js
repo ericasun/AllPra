@@ -55,12 +55,12 @@
         },
         //绑定事件
         bindEvents:function(){
-            this.form.addEventListener('submit',function(e){
+            this.form.addEventListener('submit',(e)=>{
                 e.preventDefault()
-                //this.saveMessage()
+                this.saveMessage()
             })
         },
-        saveMessage:function(){
+        saveMessage: function(){
             let myForm = this.form
             let name = myForm.querySelector('input[name=name]').value
             let content = myForm.querySelector('input[name=content]').value
@@ -75,5 +75,5 @@
             })
         }
     }
-    controller.init(view,model)
+    controller.init(view, model)
 }.call()
