@@ -3,19 +3,11 @@
     var model = Model({resourceName:'Message'})
     var view =  View('section.message')
 
-    var controller = {
-        view:null,
-        model:null,
-        messageList:null,
-        init:function(view,model){
-            this.view = view
-            this.model = model
-
+    var controller = Controller({
+        init:function(view, controller){
             this.messageList = view.querySelector('#messageList')
             this.form = view.querySelector('form')
-            this.model.init()
             this.loadMessages()
-            this.bindEvents()
         },
         //加载Message
         loadMessages:function() {
@@ -44,13 +36,15 @@
 
             this.model.save({'name':name,'content':content})
                 .then(function(object){
-                let li = document.createElement('li')
-                li.innerText = `${object.attributes.name}: ${object.attributes.content}`
-                let messageList = document.querySelector('#messageList')
-                messageList.appendChild(li)
-                myForm.querySelector('input[name=content]').value = ''
-            })
+                    let li = document.createElement('li')
+                    li.innerText = `${object.attributes.name}: ${object.attributes.content}`
+                    let messageList = document.querySelector('#messageList')
+                    messageList.appendChild(li)
+                    myForm.querySelector('input[name=content]').value = ''
+                })
         }
-    }
+    })
     controller.init(view, model)
 }.call()
+
+
