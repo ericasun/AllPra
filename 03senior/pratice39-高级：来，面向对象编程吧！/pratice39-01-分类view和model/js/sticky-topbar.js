@@ -3,7 +3,7 @@
  */
 
 !function(){
-    var view = document.querySelector('#topNavBar')
+    var view = View('#topNavBar')
 
     var controller = {
         view:null,

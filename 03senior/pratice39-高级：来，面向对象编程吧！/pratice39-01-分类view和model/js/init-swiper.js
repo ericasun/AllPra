@@ -2,7 +2,7 @@
  * Created by Administrator on 2018/1/23 0023.
  */
 !function(){
-    var view = document.querySelector('#mySlides')
+    var view = View('#mySlides')
     var controller = {
         view:null,
         swiper:null,
