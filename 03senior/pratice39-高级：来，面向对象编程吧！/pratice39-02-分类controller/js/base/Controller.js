@@ -2,6 +2,16 @@
  * Created by Administrator on 2018/2/3 0003.
  */
 
+//如何调用
+//Controller({
+//    init:(view,model){
+//        this.xxx()
+//        this.yyy()
+//    },
+//    xxx(){}
+//    yyy(){}
+//})
+
 window.Controller = function(options){
     var init = options.init //A
 

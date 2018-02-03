@@ -2,6 +2,11 @@
  * Created by Administrator on 2018/2/3 0003.
  */
 
+//如何调用
+//var model = Model({
+//    resourceName:'表名'
+//})
+
 window.Model = function(options){
     let resourceName = options.resourceName
     return {
