@@ -5,10 +5,10 @@
 window.Controller = function(options){
     var init = options.init
     this.bindEvents = options.bindEvents
+
     return {
         view:null,
         model:null,
-        messageList:null,
         init:function(view,model){
             this.view = view
             this.model = model
