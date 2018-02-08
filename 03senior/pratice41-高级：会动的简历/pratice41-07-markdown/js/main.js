@@ -3,21 +3,55 @@
  */
 
 
+function createPaper(fn){
+    var paper = document.createElement('div')
+    paper.id = 'paper'
+    var content = document.createElement('pre')
+    content.className = 'content'
+    paper.appendChild(content)
+    document.body.appendChild(paper)
+    fn && fn.call()
+}
+
+
 /*把code写到#code和style标签里*/
 function writeCode(prefix,code,fn){
     let domCode = document.querySelector('#code')
-    domCode.innerHTML = prefix || ''
+    //domCode.innerHTML = prefix || ''
     var n = 0
     var id = setInterval(()=>{
         n += 1
-        domCode.innerHTML = Prism.highlight( prefix+code.substring(0,n),Prism.languages.css)
+        domCode.innerHTML = Prism.highlight( prefix + code.substring(0,n),Prism.languages.css)
         styleTag.innerHTML = prefix + code.substring(0,n)
         domCode.scrollTop = domCode.scrollHeight;
         if(n>=code.length){
             window.clearInterval(id)
-            fn.call()
+            fn && fn.call()
         }
     },0)
+}
+
+function writeMarkdown(markdown,fn){
+    let domPaper = document.querySelector('#paper>.content')
+    let n = 0
+    var id = setInterval(()=>{
+        n += 1
+        domPaper.innerHTML = markdown.substring(0,n)
+        domPaper.scrollTop = domPaper.scrollHeight;
+        if(n >= markdown.length){
+            window.clearInterval(id)
+            fn && fn.call()
+        }
+    },70)
+}
+
+function convertMarkdownToHtml(fn){
+    var div = document.createElement('div')
+    div.className = 'html markdown-body'
+    div.innerHTML = marked(md)
+    let markdownContainer = document.querySelector('#paper > .content')
+    markdownContainer.replaceWith(div)
+    fn && fn.call()
 }
 
 
@@ -51,6 +85,9 @@ html{
 }
 .token.function{
     color:#DD4A68;
+}
+.token.function{
+    color:red;
 }
 
 /*加点3D效果*/
@@ -86,24 +123,51 @@ html{
 `
 
 var result2 = `
-#paper{
-}
+/* 接下来用一个优秀的库 marked.js
+ * 把 Markdown 变成 HTML
+ */
 `
+
+var md = `
+#自我介绍
+
+我叫XXX
+1999年1月出生
+XXX学校毕业
+自觉前端半年
+希望应聘前端开发岗位
+
+#技能介绍
+熟悉JavaScript CSS
+
+#项目介绍
+1.XXX轮播
+2.XXX简历
+3.XXX画板
+
+#联系方式
+QQ：XXXX
+Email:XXXX
+手机：XXXXX
+`
+let result3 = `
+/*
+ * 这就是我的会动的简历
+ * 谢谢观看
+ */
+`
+
 
 writeCode('',result,()=>{ //writeCode call the function
     createPaper(()=>{
-        writeCode(result,result2)
+        writeMarkdown(md,()=>{
+            writeCode(result,result2,()=>{
+                convertMarkdownToHtml(()=>{
+                    writeCode(result + result2, result3, ()=> {
+                        console.log('完成')
+                    })
+                })
+            })
+        })
     })
 })
-
-function createPaper(fn){
-    var paper = document.createElement('div')
-    paper.id = 'paper'
-    var content = document.createElement('div')
-    content.className = 'content'
-    paper.appendChild(content)
-    document.body.appendChild(paper)
-    fn.call()
-}
-
-
