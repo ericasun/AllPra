@@ -29,6 +29,6 @@ $(function(){
         audio.src = 'http://m10.music.126.net/20180221230715/06e361672d498cb25ec845257ee3754c/ymusic/dc26/6e63/6bde/d08add8397181cefb1014a7b09ee4a92.mp3'
         audio.oncanplay = function(){
             audio.play()
-            $('.disc-container').addClass(playing)
+            $('.disc-container').addClass('playing')
         }
 })
