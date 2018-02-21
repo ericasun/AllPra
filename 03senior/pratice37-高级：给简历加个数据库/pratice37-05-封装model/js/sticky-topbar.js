@@ -9,7 +9,7 @@
         view:null,
         init:function(view){
             this.view = view
-            this.bindEvents() //this.bindEvnets.call(this)
+            this.bindEvents() //this.bindEvents.call(this)
         },
         bindEvents:function(){
             var view = this.view
