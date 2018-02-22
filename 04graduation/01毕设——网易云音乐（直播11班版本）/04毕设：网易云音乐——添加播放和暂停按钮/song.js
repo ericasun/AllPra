@@ -3,7 +3,7 @@ $(function(){
         .then(
             function(object){
                 let json = JSON.parse(object)  //将字符串转换成json
-                let{lyric} = json   // 等价于 let lyric = object.lyric
+                let{lyric} = json  // 等价于 let lyric = object.lyric
 
                 let array = lyric.split('\n')
 
@@ -25,9 +25,19 @@ $(function(){
         })
 
         let audio = document.createElement('audio')
-        audio.src = 'http://m10.music.126.net/20180221230715/06e361672d498cb25ec845257ee3754c/ymusic/dc26/6e63/6bde/d08add8397181cefb1014a7b09ee4a92.mp3'
+        audio.src = 'http://m10.music.126.net/20180222213917/152ef46e8ea69a79c42909f80dde11d3/' +
+            'ymusic/dc26/6e63/6bde/d08add8397181cefb1014a7b09ee4a92.mp3'
+
         audio.oncanplay = function(){
             audio.play()
             $('.disc-container').addClass('playing')
         }
+        $('.icon-pause').on('click',function(){
+            audio.pause()
+            $('.disc-container').removeClass('playing')
+        })
+        $('.icon-play').on('click',function(){
+            audio.play()
+            $('.disc-container').addClass('playing')
+        })
 })

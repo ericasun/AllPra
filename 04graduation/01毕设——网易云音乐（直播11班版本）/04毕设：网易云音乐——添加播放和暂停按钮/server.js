@@ -34,7 +34,7 @@ var server = http.createServer(function(request,response){
         let string = fs.readFileSync('./lyric.json','utf-8')
         string = JSON.stringify(string)
         response.statusCode = 200
-        //传JSON文件不要写响应类型，实在要写的话要先转换成JSON
+        //传JSON文件最好不要写响应类型，以防格式不对造成传输失败，实在要写的话要先转换成JSON
         response.setHeader('Content-Type','text/json;charset=utf-8')
         response.write(string)
         response.end()
