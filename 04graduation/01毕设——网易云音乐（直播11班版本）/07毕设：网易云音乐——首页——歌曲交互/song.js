@@ -1,9 +1,11 @@
 $(function(){
-    let id= parseInt(location.search.match(/\bid=([^&]*)/)[1],18)
+    let id= parseInt(location.search.match(/\bid=([^&]*)/)[1],10)
 
     $.get('./songs.json')
         .then(function(response){
-            let songs = response
+            let songs = JSON.parse(response)
+
+            //filter参数为json
             let song = songs.filter(s=>s.id === id)[0]
             let {url} = song
 
@@ -22,6 +24,7 @@ $(function(){
                 $('.disc-container').addClass('playing')
             })
         })
+
     $.get('/lyric.json')
         .then(
             function(object){

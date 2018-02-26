@@ -1,10 +1,9 @@
 $(function(){
-
     setTimeout(function(){
         $.get('./songs.json').then(function(response){
-            let items = response
-            items.forEach(i)=>{
-                let $li = $(`
+            let items = JSON.parse(response)
+            items.forEach((i)=>{
+                let $li = $(` 
                 <li>
                     <a href="./song.html?id=${i.id}">
                         <h3>${i.name}</h3>

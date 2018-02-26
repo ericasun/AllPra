@@ -31,6 +31,7 @@ section>h2:first-child{ font-size:4.53vw; border-left:2px solid #D33A31; margin:
     -webkit-box-orient:vertical; overflow:hidden; text-overflow:ellipsis;}
 
 .lastestMusic{}
+.lastestMusic > p{text-align:center;}
 .lastestMusic > ol{ padding-left:calc(2.6vw + 2px);}
 .lastestMusic > ol > li{ border-bottom:1px solid #E2E2E3; padding:1vw 0; position:relative;}
 .lastestMusic > ol >li a{ text-decoration: none;}
