@@ -43,7 +43,7 @@
                         <editable-span :value="resume.name" @edit="onEdit('name',$event)"></editable-span>
                     </h1>
                     <p>应聘职位：
-                        <editable-span :value="resume.jobTitle" @edit="onEdit('jobTitle',$sevent)"></editable-span>
+                        <editable-span :value="resume.jobTitle" @edit="onEdit('jobTitle',$event)"></editable-span>
                     </p>
                     <p class="profile">
                         <editable-span :value="resume.birthday" @edit="onEdit('birthday',$event)"></editable-span>
@@ -53,7 +53,7 @@
                         <editable-span :value="resume.email" @edit="onEdit('email',$event)"></editable-span>
                         |
                         <editable-span :value="resume.phone" @edit="onEdit('phone',$event)"></editable-span>
-                        {{resume.birthday}} | {{resume.gender}} | {{resume.email}} | {{resume.phone}}</p>
+                    </p>
                 </section>
                 <section class="skills">
                     <h1>技能</h1>
@@ -146,8 +146,8 @@
             props:['value'],
             template:`
                 <span class="editableSpan">
-                    <!--<span v-show="!editing">{{value}}</span>-->
-                    <input v-show="!editing" type="text" v-bind:value="value" @input="triggerEdit">
+                    <span v-show="!editing">{{value}}</span>
+                    <input v-show="editing" type="text" v-bind:value="value" @input="triggerEdit">
                     <button @click="editing=!editing">edit</button>
                 </span>
             `,
@@ -166,18 +166,18 @@
             el:'#app',
             data:{
                 editingName:false,
-               resume:{
+                resume:{
                    name:'姓名',
                    gender:'女',
-                   birthday:'',
+                   birthday:'1990年1月',
                    jobTitle:'前端工程师',
-                   phone:13811111111,
+                   phone:'13811111111',
                    email:'example@example.com'
                }
             },
             methods:{
                 onEdit(key,value){
-                    this.resume.name = value
+                    this.resume[key] = value
                 },
                 onEditJobTitle(value){
                     this.resume.jobTitle = value
