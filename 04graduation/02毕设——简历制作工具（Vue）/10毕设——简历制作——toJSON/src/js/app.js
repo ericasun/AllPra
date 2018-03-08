@@ -90,7 +90,7 @@ let app = new Vue({
             query.get(this.currentUser.objectId).then((user)=>{
                 let resume = user.toJSON().resume
                 this.resume = resume
-            },(error)=>{
+            },(error){
                 //异常处理
 
             })
