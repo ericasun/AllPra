@@ -26,11 +26,11 @@ var server = http.createServer(function(request,response){
         response.setHeader('Access-Control-Allow-Origin','*')
         response.removeHeader('Date')
 
-        var consfig = fs.readFileSync('./qiniu-key.json')
-        consfig = JSON.parse(config)
+        var config = fs.readFileSync('./qiniu-key.json')
+        config = JSON.parse(config)
 
-        var {accessKey, secretKey} = consfig;
-        var mac = new qiniu.auto.digest.Mac(accessKey, secretKey);
+        let {accessKey, secretKey} = config;
+        var mac = new qiniu.auth.digest.Mac(accessKey, secretKey);
         var options = {
             scope:'2018music',
         };

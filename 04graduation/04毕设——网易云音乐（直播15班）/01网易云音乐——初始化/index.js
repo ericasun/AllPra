@@ -79,8 +79,8 @@ var server = http.createServer(function(request,response){
         response.setHeader('Content-Type','text/json;charset=utf-8')
         response.write(string)
         response.end()
-    }else if(path ==='/node_modules/plupload/js/moxie.js'){
-        let string = fs.readFileSync('./node_modules/plupload/js/moxie.js','utf-8')
+    }else if(path ==='/vendors/moxie.js'){
+        let string = fs.readFileSync('./vendors/moxie.js','utf-8')
         string = JSON.stringify(string)
         response.statusCode = 200
         response.setHeader('Content-Type','text/javascript;charset=utf-8')
