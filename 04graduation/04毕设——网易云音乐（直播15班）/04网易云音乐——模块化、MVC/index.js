@@ -85,9 +85,33 @@ var server = http.createServer(function(request,response){
         response.write(string)
         response.end()
     }else if(path ==='/css/default.css'){
-        let string = fs.readFileSync('./css/default.css','utf-8')
+        let string = fs.readFileSync('./src/css/default.css','utf-8')
         response.statusCode = 200
         response.setHeader('Content-Type','text/css;charset=utf-8')
+        response.write(string)
+        response.end()
+    }else if(path ==='/js/new-song.js'){
+        let string = fs.readFileSync('./src/js/new-song.js','utf-8')
+        response.statusCode = 200
+        response.setHeader('Content-Type','text/javascript;charset=utf-8')
+        response.write(string)
+        response.end()
+    }else if(path ==='/js/song-form.js'){
+        let string = fs.readFileSync('./src/js/song-form.js','utf-8')
+        response.statusCode = 200
+        response.setHeader('Content-Type','text/javascript;charset=utf-8')
+        response.write(string)
+        response.end()
+    }else if(path ==='/js/song-list.js'){
+        let string = fs.readFileSync('./src/js/song-list.js','utf-8')
+        response.statusCode = 200
+        response.setHeader('Content-Type','text/javascript;charset=utf-8')
+        response.write(string)
+        response.end()
+    }else if(path ==='/js/upload-song.js'){
+        let string = fs.readFileSync('./src/js/upload-song.js','utf-8')
+        response.statusCode = 200
+        response.setHeader('Content-Type','text/javascript;charset=utf-8')
         response.write(string)
         response.end()
     }else{
