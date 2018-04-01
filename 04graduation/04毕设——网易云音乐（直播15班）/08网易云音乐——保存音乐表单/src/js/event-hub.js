@@ -1,7 +1,7 @@
 window.eventHub = {
     events:{
-        '羊城晚报':[],
-        '楚天都市报':[]
+        // '羊城晚报':[],
+        // '楚天都市报':[]
     }, //hash
     emit(eventName,data){ //发布
         for( let key in this.events){
