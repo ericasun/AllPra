@@ -114,8 +114,8 @@ var server = http.createServer(function(request,response){
         response.setHeader('Content-Type','text/javascript;charset=utf-8')
         response.write(string)
         response.end()
-    }else if(path ==='/js/app.js'){
-        let string = fs.readFileSync('./src/js/app.js','utf-8')
+    }else if(path ==='/js/event-hub.js'){
+        let string = fs.readFileSync('./src/js/event-hub.js','utf-8')
         response.statusCode = 200
         response.setHeader('Content-Type','text/javascript;charset=utf-8')
         response.write(string)

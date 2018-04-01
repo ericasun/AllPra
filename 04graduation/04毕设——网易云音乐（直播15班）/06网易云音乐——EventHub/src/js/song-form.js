@@ -33,11 +33,14 @@
             this.view = view
             this.model = model
             this.view.render(this.model.data)
+            window.eventHub.on('upload',(data)=>{
+                console.log('song form 模块得到了data')
+                console.log(data)
+            })
         },
         reset(data){
-            console.log(reset)
+
         }
     }
     controller.init(view,model)
-    window.app.songForm = controller
 }
