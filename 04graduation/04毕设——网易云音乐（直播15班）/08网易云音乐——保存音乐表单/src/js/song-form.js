@@ -53,7 +53,7 @@
             song.set('url',data.url);
             return song.save().then((newSong) => {
                 let {id,attributes} = newSong
-                Object.assign(this.data,{id,...attributes})
+                Object.assign(this.data,{id, ...attributes})
             },  (error) => {
                 console.error(error);
             });
@@ -67,7 +67,7 @@
             this.view.render(this.model.data)
             this.bindEvents()
             window.eventHub.on('upload',(data)=>{
-                this.view.render(this.model.data)
+                this.view.render(data)
             })
         },
         bindEvents(){
@@ -76,7 +76,7 @@
                 let needs = 'name singer url'.split(' ')
                 let data = {}
                 needs.map((string)=>{
-                    data[string] = this.view.$el.find(`[name="{string}"]`).val()
+                    data[string] = this.view.$el.find(`[name="${string}"]`).val()
                 })
                 this.model.create(data)
                     .then(()=>{
