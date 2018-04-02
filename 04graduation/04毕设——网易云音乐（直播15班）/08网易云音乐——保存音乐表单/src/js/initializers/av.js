@@ -1,6 +1,6 @@
 {
-    let APP_ID = 'mwY7FhH8cQ7GUpuEMFeKlSPu-gzGzoHsz';
-    let APP_KEY = 'uHr7SsrO2iJ1YyOEGiszdxIr';
+    let APP_ID = 'FqPJXxCv1gabu5JMeHrved6l-gzGzoHsz';
+    let APP_KEY = 'Eevd4W01afMxVUg9s2pDDTr4';
 
     AV.init({
         appId: APP_ID,
