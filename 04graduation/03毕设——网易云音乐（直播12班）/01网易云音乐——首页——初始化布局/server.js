@@ -13,13 +13,13 @@ var server = http.createServer(function(request,response){
     //从这里开始看，上面不要看
 
     if(path === '/'){ //如果用户请求的是/路径
-        let string = fs.readFileSync('./home.html')
+        let string = fs.readFileSync('./index.html')
         response.statusCode = 200
         response.setHeader('Content-Type','text/html;charset=utf-8')
         response.write(string)
         response.end()
     }else if(path ==='/index.css') {
-        let string = fs.readFileSync('./home.css', 'utf-8')
+        let string = fs.readFileSync('./index.css', 'utf-8')
         response.statusCode = 200
         response.setHeader('Content-Type', 'text/css;charset=utf-8')
         response.write(string)
