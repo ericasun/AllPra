@@ -1,3 +1,4 @@
+window.x = 'open'
 {
     let view ={
         el:'.uploadArea',
@@ -29,12 +30,12 @@
                 drop_element: this.view.find('#uploadContainer'),        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
                 auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
                 init: {
-                    'FilesAdded': function(up, files) {
+                    'FilesAdded': (up, files)=>{
                         plupload.each(files, function(file) {
                             // 文件添加进队列后,处理相关的事情
                         });
                     },
-                    'BeforeUpload': function(up, file) {
+                    'BeforeUpload': (up, file) =>{
                         window.eventHub.emit('beforeUpload')
                         if(this.model.data.status === 'closed'){
                             return false
@@ -47,7 +48,7 @@
                     'UploadProgress': function(up, file) {
                         // 每个文件上传时,处理相关的事情
                     },
-                    'FileUploaded': function(up, file, info) {
+                    'FileUploaded': (up, file, info) => {
                         window.eventHub.emit('afterUpload')
                         this.model.data.status = 'open'
                         var domain = up.getOption('domain');
