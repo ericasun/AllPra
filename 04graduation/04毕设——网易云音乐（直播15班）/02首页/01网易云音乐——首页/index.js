@@ -13,6 +13,12 @@ var server = http.createServer(function(request,response){
     //从这里开始看，上面不要看
 
     if(path === '/'){ //如果用户请求的是/路径
+        let string = fs.readFileSync('./src/index.html')
+        response.statusCode = 200
+        response.setHeader('Content-Type','text/html;charset=utf-8')
+        response.write(string)
+        response.end()
+    }else if(path === '/admin.html'){
         let string = fs.readFileSync('./src/admin.html')
         response.statusCode = 200
         response.setHeader('Content-Type','text/html;charset=utf-8')
@@ -86,6 +92,12 @@ var server = http.createServer(function(request,response){
         response.end()
     }else if(path ==='/css/default.css'){
         let string = fs.readFileSync('./src/css/default.css','utf-8')
+        response.statusCode = 200
+        response.setHeader('Content-Type','text/css;charset=utf-8')
+        response.write(string)
+        response.end()
+    }else if(path ==='/css/index.css'){
+        let string = fs.readFileSync('./src/css/index.css','utf-8')
         response.statusCode = 200
         response.setHeader('Content-Type','text/css;charset=utf-8')
         response.write(string)
