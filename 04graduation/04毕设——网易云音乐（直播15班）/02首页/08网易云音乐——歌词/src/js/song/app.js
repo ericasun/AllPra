@@ -11,9 +11,7 @@
             if(this.$el.find('audio').attr('src') !== song.url){
                 let audio = this.$el.find('audio').attr('src',song.url).get(0)
                 audio.onended = ()=>{ window.eventHub.emit('songEnd') }
-                audio.ontimeupdate = ()=>{
-                    this.showLyric(audio.currentTime)
-                }
+                audio.ontimeupdate = ()=>{ this.showLyric(audio.currentTime)}
             }
             if(status === 'playing'){
                 this.$el.find('.disc-container').addClass('playing')
@@ -22,9 +20,9 @@
             }
             this.$el.find('.song-description>h1').text(song.name)
             let {lyrics} = song
-            let array = lyrics.split('\n').map((string)=>{
+            lyrics.split('\n').map((string)=>{
                 let p = document.createElement('p')
-                let regex = /\[([\d:]+)\](.+)/
+                let regex = /\[([\d:.]+)\](.+)/
                 let matches = string.match(regex)
                 if(matches){
                     p.textContent = matches[2]
@@ -60,9 +58,9 @@
             let linesHeight = this.$el.find('.lyric>.lines')[0].getBoundingClientRect().top
             let height = pHeight - linesHeight
             this.$el.find('.lyric>.lines').css({
-                transform:`translateY(${-height -25}px)`
+                transform:`translateY(${-(height -25)}px)`
             })
-            $(p).addClass('active').siblings('.active').removeClass('.active')
+            $(p).addClass('.active').siblings('.active').removeClass('.active')
         },
         play(){
             this.$el.find('audio')[0].play()
@@ -92,6 +90,7 @@
     let controller = {
         init(view,model){
             this.view = view
+            this.view.init()
             this.model = model
             let id = this.getSongId()
             this.model.get(id).then(()=>{
