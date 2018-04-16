@@ -54,7 +54,7 @@
                     }
                 }
             }
-            let pHeight = p.getBoundingClientRect(),top
+            let pHeight = p.getBoundingClientRect().top
             let linesHeight = this.$el.find('.lyric>.lines')[0].getBoundingClientRect().top
             let height = pHeight - linesHeight
             this.$el.find('.lyric>.lines').css({
