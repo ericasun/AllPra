@@ -39,7 +39,7 @@ let app = new Vue({
     methods:{
         onEdit(key,value){
             let regex = /\[(\d+)\]/g
-            key = key.replace(regex,(match,number)=> `,${number}`)
+            key = key.replace(regex,(match,number)=> `.${number}`)
             keys = key.split('.')
             let result = this.resume
             for(let i=0; i<keys.length; i++){
@@ -124,7 +124,7 @@ let app = new Vue({
             this.resume.projects.push({name:'请填写项目名称',link:'http://...',keywords:'请填写关键词',description:'请详细描述'})
         },
         removeProject(index){
-            this.resume.projects.splic(index,1)
+            this.resume.projects.splice(index,1)
         }
      }
 })

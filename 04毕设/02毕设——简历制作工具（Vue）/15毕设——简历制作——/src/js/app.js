@@ -55,7 +55,7 @@ let app = new Vue({
         },
         onEdit(key,value){
             let regex = /\[(\d+)\]/g
-            key = key.replace(regex,(match,number)=> `,${number}`)
+            key = key.replace(regex,(match,number)=> `.${number}`)
             keys = key.split('.')
             let result = this.resume
             for(let i=0; i<keys.length; i++) {
