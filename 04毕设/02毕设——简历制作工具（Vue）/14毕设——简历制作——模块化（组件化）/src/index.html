@@ -117,8 +117,8 @@
 
         <login v-show="loginVisible" @close="loginVisible=false" @login="onLogin"></login>
         <share :share-link="shareLink" v-show="shareVisible"></share>
-        <singUp v-show="signUpVisible"></singUp>
-        <skinPicker v-show="skinPickerVisible"></skinPicker>
+        <sing-up v-show="signUpVisible"></sing-up>
+        <skin-picker v-show="skinPickerVisible"></skin-picker>
 
         <button class="exitPreview" @click="mode ='edit'" v-if="mode === 'preview'">退出预览</button>
 

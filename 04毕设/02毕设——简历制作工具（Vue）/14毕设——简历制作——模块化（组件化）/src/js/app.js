@@ -1,13 +1,12 @@
 let app = new Vue({
     el:'#app',
     data:{
-        editingName:false, loginVisible:false, signUpVisible:false, shareVisible:false,
-        shareLink:'',
+        editingName:false, loginVisible:false, signUpVisible:false, shareVisible:false, shareLink:'',
         skinPickerVisible:false,
+        previewResume:{},
         previewUser:{
             objectId:undefined,
         },
-        previewResume:{},
         currentUser:{
             id:undefined,
             email:'',
