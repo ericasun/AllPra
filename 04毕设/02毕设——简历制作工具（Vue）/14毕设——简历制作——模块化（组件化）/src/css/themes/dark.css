@@ -13,4 +13,5 @@ body.dark .resume .projects header { display: flex; align-items: center; justify
     margin-bottom: 10px;}
 body.dark .resume .projects header .name { margin-right: 1em; }
 body.dark .resume .projects header .start { display: flex; }
+div.share{ color:black; }
 
