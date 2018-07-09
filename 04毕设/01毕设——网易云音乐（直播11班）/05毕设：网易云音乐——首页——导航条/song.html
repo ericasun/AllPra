@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>歌曲播放</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <link rel="stylesheet" href="song.css" >
+</head>
+
+<body>
+    <div class="page">
+        <div class="disc-container">
+            <img class="pointer" src="http://s3.music.126.net/m/s/img/needle-plus.png?994aa910ce3e4d242eb7076620b0e502">
+
+            <div class="disc">
+                <!--播放和暂停按钮-->
+                <div class="icon-wrapper">
+                    <svg class="icon icon-play" aria-hidden="true">
+                        <use xlink:href="#icon-bofang"></use>
+                    </svg>
+                    <svg class="icon icon-pause" aria-hidden="true">
+                        <use xlink:href="#icon-weibiaoti519"></use>
+                    </svg>
+                </div>
+
+                <img class="ring" src="http://s3.music.126.net/m/s/img/disc-plus.png?b700b62e1971b351dcb8b8ce1c9ceea3">
+                <img class="light" src="http://s3.music.126.net/m/s/img/disc_light-plus.png?4392c8c9a8a33d4b2b2c33d3995503c9">
+                <img class="cover" src="http://p1.music.126.net/P1goeQ7SoxEkFsb4ZDijMw==/7746059418324672.jpg
+                ?%20imageView&thumbnail=360y360&quality=75&tostatic=0">
+            </div>
+        </div>
+
+        <div class="song-description">
+            <h1>七里香</h1>
+            <div class="lyric">
+                <div class="lines"></div>
+            </div>
+        </div>
+
+        <div class="links">
+            <a href="#">打开</a>
+            <a class="main" href="#">下载</a>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="song.js"></script>
+<script src="//at.alicdn.com/t/font_571641_kqydavth1653766r.js"></script>
+</html>
