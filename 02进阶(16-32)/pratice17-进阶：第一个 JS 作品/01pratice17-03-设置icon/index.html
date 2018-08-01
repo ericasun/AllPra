@@ -8,11 +8,12 @@
 <body>
     <header></header>
     <main >
-        <div class="wrapper" id="mainXXXX"></div>
+        <div class="wrapper" id="main"></div>
     </main>
     <footer></footer>
 
     <script>
+        //1.初始化数据
         var keys = {
             0:{0:'q',1:'w',2:'e',3:'r',4:'t',5:'y',6:'u',7:'i',8:'o',9:'p',length:10},
             1:{0:'a',1:'s',2:'d',3:'f',4:'g',5:'h',6:'j',7:'k',8:'l',length:9},
@@ -28,11 +29,12 @@
             'y':'youtube.cn',
             'u':'uc.com',
             'i':'iqiyi.com',
-            'o':'opera.com',
-            'p':undefined,
+            'o':'zhihu.com',
+            'p':'zhihu.com',
             'a':'alibaba.com',
-            's':'sohu.com',
+            's':'zhihu.com',
             'z':'zhihu.com',
+            'b':'bilibili.com',
             'm':'www.mcdonalds.com.cn'
         }
         //取出localStorage中的zzz对应的hash
@@ -41,33 +43,53 @@
             hash = hashInLocalStorage
         }
 
+        //2.生成键盘
         //遍历keys，生成kbd标签
-        index = 0
+        var index = 0
         while(index<keys['length']){
-            divXXXX = document.createElement('div')
-            mainXXXX.appendChild(divXXXX)
-            row = keys[index] //第一个数组  第二个数组  第三个数组
-            index2 = 0
+            var div = document.createElement('div')
+            div.className = 'row'
+            main.appendChild(div)
+            var row = keys[index] //第一个数组  第二个数组  第三个数组
+            var index2 = 0
             while(index2 < row['length']){
-                kbdXXXX = document.createElement('kbd')
-                kbdXXXX.textContent = row[index2]
-                buttonX = document.createElement('button')
-                buttonX.textContent = '编辑'
-                buttonX.id = row[index2]
-                buttonX.onclick = function(xzkjcnxlkcjlk){
+                var kbd = document.createElement('kbd')
+                var span = document.createElement('span')
+                span.textContent = row[index2]
+                span.className = 'text'
+                kbd.appendChild(span)
+                kbd.className = 'key'
+                var button = document.createElement('button')
+                button.textContent = '编辑'
+                button.id = row[index2]
+                var img = document.createElement('img')
+                if(hash[row[index2]]){
+                    img.src= 'http://' + hash[row[index2]] + '/favicon.ico'
+                }else{
+                    img.src= 'http://baidu.com/favicon.ico'
+                }
+                img.onerror = function(xxx){
+                    xxx.target.src= 'http://baidu.com/favicon.ico'
+                }
+
+                button.onclick = function(xzkjcnxlkcjlk){
                     //xzkjcnxlkcjlk['target']就是用户点击的元素
-                    key = xzkjcnxlkcjlk['target']['id'] // q w e r t
-                    x = prompt('给我一个网址') //qq.com
+                    var button2 = xzkjcnxlkcjlk['target']
+                    var img2 = button2.previousSibling
+                    var key = button2['id'] // q w e r t
+                    var x = prompt('给我一个网址') //qq.com
                     hash[key] = x
                     localStorage.setItem('zzz',JSON.stringify(hash))
                 }
-                kbdXXXX.appendChild(buttonX)
-                divXXXX.appendChild(kbdXXXX)
+                kbd.appendChild(img)
+                kbd.appendChild(button)
+                div.appendChild(kbd)
                 index2 = index2 + 1
             }
             index = index+1
         }
 
+        //3.监听键盘
         document.onkeypress = function(xzkjcnxlkcjlk){
             key =   xzkjcnxlkcjlk['key'] //q w e
             website = hash[key]
