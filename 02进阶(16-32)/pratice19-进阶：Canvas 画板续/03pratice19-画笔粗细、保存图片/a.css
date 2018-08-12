@@ -3,12 +3,13 @@ ul,li{
 }
 
 body{
-    margin:0px;
+    overflow:hidden;
 }
 
 #xxx{
     /*background:green;*/
     display:block;
+    background:white;
 }
 
 .actions{
@@ -62,3 +63,26 @@ body{
 	transform:scale(1.2);
 	transition: all 0.3s;
 }
+
+.sizes{
+    position:fixed;
+    right:10px;
+    top:10px;
+}
+
+.sizes > li{
+    margin:20px 0;
+}
+
+.sizes > .thin{
+    height:0;
+    width:20px;
+    border-top:3px solid black;
+}
+
+.sizes > .thick{
+    height:0;
+    width:20px;
+    border-top:6px solid black;
+}
+
